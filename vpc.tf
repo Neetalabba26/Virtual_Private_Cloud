@@ -70,7 +70,7 @@ subnet_id = "${aws_subnet.pubblic_subnet.id}"
 route_table_id = "${aws_route_table.RT.id}"
 }
 
-/*     ec2 instance     *
+/*     ec2 instance     */
 
 resource "aws_instance" "web_server"
 {
