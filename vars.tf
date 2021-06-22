@@ -23,3 +23,8 @@ variable "private_subnet_2_cidr" {
     description = "CIDR for the Private Subnet 2"
     default = "10.0.0.192/26"
 }
+
+variable "instance_ami" {
+    description = "id of the ami used"
+    default = "ami-0211d10fb4a04824a"
+}
