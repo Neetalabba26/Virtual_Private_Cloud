@@ -24,7 +24,12 @@ variable "private_subnet_2_cidr" {
     default = "10.0.0.192/26"
 }
 
-variable "instance_ami" {
+variable "public_instance_ami" {
+    description = "id of the ami used"
+    default = "ami-0211d10fb4a04824a"
+}
+
+variable "private_instance_ami_1" {
     description = "id of the ami used"
     default = "ami-0211d10fb4a04824a"
 }
