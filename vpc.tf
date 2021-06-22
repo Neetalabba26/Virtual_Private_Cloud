@@ -5,10 +5,6 @@ resource "aws_vpc" "test_vpc" {
         Name = "test_vpc"
     }
 }
-output "vpc_id" {
-  value = "${aws_vpc.test_vpc.id}"
-}
-
 
 resource "aws_internet_gateway" "igw"
 {
