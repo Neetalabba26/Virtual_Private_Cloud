@@ -66,7 +66,7 @@ resource "aws_route_table" "RT" {
 
 resource "aws_route_table_association" "RT_association"
 {
-subnet_id = "${aws_subnet.pubblic_subnet.id}"
+public_subnet_id = "${aws_subnet.public_subnet.id}"
 route_table_id = "${aws_route_table.RT.id}"
 }
 
@@ -74,14 +74,25 @@ route_table_id = "${aws_route_table.RT.id}"
 
 resource "aws_instance" "web_server"
 {
-    ami = "${var.instance_ami}"
+    ami = "${var.public_instance_ami}"
     availability_zone = "us-east-1a"
     instance_type = "t2.micro"
     associate_public_ip_address = true
-    subnet_id = "${aws_subnet.pubblic_subnet.id}"
+    public_subnet_id = "${aws_subnet.public_subnet.id}"
     vpc_seurity_group_id = "${aws_security_group.sg_1.id}"
     tags{
         Name = "webserver"
+    }
+}
+
+resource "aws_instance" "db_server"
+{
+    ami = "${var.private_instance_ami_1}"
+    availability_zone = "us-east-1b"
+    instance_type = "t2.micro"
+    private_subnet_1_id = "${aws_subnet.private_subnet_1.id}"
+    tags{
+        Name = "dbserver"
     }
 }
 
