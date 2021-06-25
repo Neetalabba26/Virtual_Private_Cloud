@@ -10,6 +10,6 @@ output "public_subnet_id" {
 output "private_subnet_1_id" {
   value = "${aws_subnet.private_subnet_1.id}"
 }
-output "security_group_id" {
+output "security_group1_id" {
   value = "${aws_security_group.sg_1.id}"
 }
